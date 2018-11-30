@@ -1,26 +1,17 @@
 describe("Converter", function () {
-  it("should return 'one' when given 1", function() {
-    result = Converter(1);
-    expect(result).toEqual("one");
-  });
 
-  it("should return 'eleven' when given 11", function() {
-    result = Converter(11);
-    expect(result).toEqual("eleven");
-  });
+  var runs = [
+    { args: [1],      result: "one" },
+    { args: [11],     result: "eleven" },
+    { args: [21],     result: "twenty-one" },
+    { args: [30],     result: "thirty" },
+    { args: [101],    result: "one hundred and one" }
+  ];
 
-  it("should return 'twenty-one' when given 21", function() {
-    result = Converter(21);
-    expect(result).toEqual("twenty-one");
-  });
-
-  it("should return 'thirty' when given 30", function() {
-    result = Converter(30);
-    expect(result).toEqual("thirty");
-  });
-
-  it("should return 'one hundred and one' when given 101", function() {
-    result = Converter(101);
-    expect(result).toEqual("one hundred and one");
+  it('returns correct string for number', function () {
+    runs.forEach(function (run) {
+      var result = Converter.apply(this, run.args);
+      expect(result).toEqual(run.result);
+    });
   });
 });
