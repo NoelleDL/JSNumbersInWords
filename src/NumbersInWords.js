@@ -33,7 +33,7 @@ function Converter(number) {
   var units = number % 10;
   var tens = number - units;
 
-  if (number > 20 && number < 100 && number % 10 != 0) {
+  if (number > 20 && number < 100 && units != 0) {
     return numberToWords[tens] + '-' + numberToWords[units];
   }
 
