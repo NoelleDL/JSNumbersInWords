@@ -29,17 +29,16 @@ function Converter(number) {
     90: 'ninety',
     100: 'one hundred'
   };
+  
+  var units = number % 10;
+  var tens = number - units;
 
   if (number > 20 && number < 100 && number % 10 != 0) {
-    var units = number % 10;
-    var tens = number - units;
     return numberToWords[tens] + '-' + numberToWords[units];
   }
 
   if (number > 100 && number % 100 != 0) {
-    var units1 = number % 10;
-    var tens1 = number - units1;
-    return numberToWords[tens1] + ' and ' + numberToWords[units1];
+    return numberToWords[tens] + ' and ' + numberToWords[units];
   }
   return numberToWords[number];
 }
