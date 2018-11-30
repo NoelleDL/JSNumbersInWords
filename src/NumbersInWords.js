@@ -19,9 +19,17 @@ function Converter(number) {
     17: 'seventeen',
     18: 'eighteen',
     19: 'nineteen',
-    20: 'twenty'
+    20: 'twenty',
+    30: 'thirty',
+    40: 'forty',
+    50: 'fifty',
+    60: 'sixty',
+    70: 'seventy',
+    80: 'eighty',
+    90: 'ninety',
+    100: 'one-hundred'
   };
-  
+
   if (number > 20 && number % 10 != 0) {
     var units = number % 10;
     var tens = number - units;

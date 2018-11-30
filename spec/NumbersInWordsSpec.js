@@ -13,4 +13,9 @@ describe("Converter", function () {
     result = Converter(21);
     expect(result).toEqual("twenty-one");
   });
+
+  it("should return 'thirty' when given 30", function() {
+    result = Converter(30);
+    expect(result).toEqual("thirty");
+  });
 });
