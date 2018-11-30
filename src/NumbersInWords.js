@@ -27,13 +27,19 @@ function Converter(number) {
     70: 'seventy',
     80: 'eighty',
     90: 'ninety',
-    100: 'one-hundred'
+    100: 'one hundred'
   };
 
-  if (number > 20 && number % 10 != 0) {
+  if (number > 20 && number < 100 && number % 10 != 0) {
     var units = number % 10;
     var tens = number - units;
     return numberToWords[tens] + '-' + numberToWords[units];
+  }
+
+  if (number > 100 && number % 100 != 0) {
+    var units1 = number % 10;
+    var tens1 = number - units1;
+    return numberToWords[tens1] + ' and ' + numberToWords[units1];
   }
   return numberToWords[number];
 }
