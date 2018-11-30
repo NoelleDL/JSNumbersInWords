@@ -21,5 +21,11 @@ function Converter(number) {
     19: 'nineteen',
     20: 'twenty'
   };
+  
+  if (number > 20 && number % 10 != 0) {
+    var units = number % 10;
+    var tens = number - units;
+    return numberToWords[tens] + '-' + numberToWords[units];
+  }
   return numberToWords[number];
 }

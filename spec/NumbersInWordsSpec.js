@@ -4,8 +4,13 @@ describe("Converter", function () {
     expect(result).toEqual("one");
   });
 
-  it("should return 'eleven' when given 1", function() {
+  it("should return 'eleven' when given 11", function() {
     result = Converter(11);
     expect(result).toEqual("eleven");
+  });
+
+  it("should return 'twenty-one' when given 21", function() {
+    result = Converter(21);
+    expect(result).toEqual("twenty-one");
   });
 });
