@@ -34,13 +34,15 @@ function Converter(number) {
   var tens = number - units;
   var unitHundreds = number % 100;
   var hundreds = number - unitHundreds;
+  var newNumber = unitHundreds % 10;
+  var newNumberTens = unitHundreds - newNumber;
 
 
   if (number > 20 && number < 100 && units != 0) {
     return numberToWords[tens] + '-' + numberToWords[units];
   }
 
-  if (number > 100 && number < 120 && number % 100 != 0) {
+  if (number > 100 && number < 120 && unitHundreds != 0) {
     return numberToWords[tens] + ' and ' + numberToWords[units];
   }
 
@@ -49,8 +51,6 @@ function Converter(number) {
   }
 
   if (number > 120 && units != 0) {
-    var newNumber = unitHundreds % 10;
-    var newNumberTens = unitHundreds - newNumber;
     return numberToWords[hundreds] + ' and ' + numberToWords[newNumberTens] + '-' + numberToWords[newNumber];
   }
   return numberToWords[number];
