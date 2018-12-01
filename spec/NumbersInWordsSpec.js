@@ -7,7 +7,8 @@ describe("Converter", function () {
     { args: [30],     result: "thirty" },
     { args: [101],    result: "one hundred and one" },
     { args: [140],    result: "one hundred and forty" },
-    { args: [168],    result: "one hundred and sixty-eight" }
+    { args: [168],    result: "one hundred and sixty-eight" },
+    { args: [200],    result: "two hundred" }
   ];
 
   it('returns correct string for number', function () {
