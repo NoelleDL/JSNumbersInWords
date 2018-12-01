@@ -32,6 +32,9 @@ function Converter(number) {
 
   var units = number % 10;
   var tens = number - units;
+  var unitHundreds = number % 100;
+  var hundreds = number - unitHundreds;
+
 
   if (number > 20 && number < 100 && units != 0) {
     return numberToWords[tens] + '-' + numberToWords[units];
@@ -41,10 +44,14 @@ function Converter(number) {
     return numberToWords[tens] + ' and ' + numberToWords[units];
   }
 
-  if (number > 119) {
-    var unitHundreds = number % 100;
-    var hundreds = number - unitHundreds;
+  if (number > 119 && units == 0) {
     return numberToWords[hundreds] + ' and ' + numberToWords[unitHundreds];
+  }
+
+  if (number > 120 && units != 0) {
+    var newNumber = unitHundreds % 10;
+    var newNumberTens = unitHundreds - newNumber;
+    return numberToWords[hundreds] + ' and ' + numberToWords[newNumberTens] + '-' + numberToWords[newNumber];
   }
   return numberToWords[number];
 }
