@@ -27,17 +27,13 @@ function Converter(number) {
     70: 'seventy',
     80: 'eighty',
     90: 'ninety',
-    100: 'one hundred',
-    200: 'two hundred'
+    100: 'one hundred'
   };
 
   var units = number % 10;
   var tens = number - units;
   var hundreds = tens % 100;
   var unitHundreds = (number - hundreds - units) / 100;
-  //var newNumber = unitHundreds % 10;
-  //var newNumberTens = unitHundreds - newNumber;
-
 
   if (number > 20 && number < 100 && units != 0) {
     return numberToWords[tens] + '-' + numberToWords[units];
@@ -45,6 +41,10 @@ function Converter(number) {
 
   if (number > 100 && number < 120 && unitHundreds != 0) {
     return numberToWords[tens] + ' and ' + numberToWords[units];
+  }
+
+  if (number > 119 && units == 0 && hundreds == 0) {
+    return numberToWords[unitHundreds] + ' hundred';
   }
 
   if (number > 120 && units == 0) {
@@ -55,9 +55,7 @@ function Converter(number) {
     return numberToWords[unitHundreds] + ' hundred and ' + numberToWords[hundreds] + '-' + numberToWords[units];
   }
 
-  if (number > 119 && unitHundreds != 0) {
-    return numberToWords[Hundreds] + ' and ' + numberToWords[unitHundreds];
-  }
+
 
 
   return numberToWords[number];
