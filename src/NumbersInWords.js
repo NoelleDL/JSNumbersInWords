@@ -34,7 +34,7 @@ function Converter(number) {
   var units = number % 10;
   var tens = number - units;
   var hundreds = tens % 100;
-  var unitHundreds = (number - hundreds) / 100; 
+  var unitHundreds = (number - hundreds - units) / 100;
   //var newNumber = unitHundreds % 10;
   //var newNumberTens = unitHundreds - newNumber;
 
@@ -48,11 +48,11 @@ function Converter(number) {
   }
 
   if (number > 120 && units == 0) {
-    return numberToWords[unitHundreds] + ' hundred and ' + numberToWords[hundreds]
+    return numberToWords[unitHundreds] + ' hundred and ' + numberToWords[hundreds];
   }
 
   if (number > 120 && units != 0) {
-    return numberToWords[unitHundreds] + ' hundred ' + numberToWords[hundreds] + '-' + numberToWords[units];
+    return numberToWords[unitHundreds] + ' hundred and ' + numberToWords[hundreds] + '-' + numberToWords[units];
   }
 
   if (number > 119 && unitHundreds != 0) {
