@@ -33,10 +33,10 @@ function Converter(number) {
 
   var units = number % 10;
   var tens = number - units;
-  var unitHundreds = number % 100;
-  var hundreds = number - unitHundreds;
-  var newNumber = unitHundreds % 10;
-  var newNumberTens = unitHundreds - newNumber;
+  var hundreds = tens % 100;
+  var unitHundreds = (number - hundreds) / 100; 
+  //var newNumber = unitHundreds % 10;
+  //var newNumberTens = unitHundreds - newNumber;
 
 
   if (number > 20 && number < 100 && units != 0) {
@@ -47,12 +47,16 @@ function Converter(number) {
     return numberToWords[tens] + ' and ' + numberToWords[units];
   }
 
+  if (number > 120 && units == 0) {
+    return numberToWords[unitHundreds] + ' hundred and ' + numberToWords[hundreds]
+  }
+
   if (number > 120 && units != 0) {
-    return numberToWords[hundreds] + ' and ' + numberToWords[newNumberTens] + '-' + numberToWords[newNumber];
+    return numberToWords[unitHundreds] + ' hundred ' + numberToWords[hundreds] + '-' + numberToWords[units];
   }
 
   if (number > 119 && unitHundreds != 0) {
-    return numberToWords[hundreds] + ' and ' + numberToWords[unitHundreds];
+    return numberToWords[Hundreds] + ' and ' + numberToWords[unitHundreds];
   }
 
 
